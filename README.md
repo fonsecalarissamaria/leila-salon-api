@@ -84,7 +84,11 @@ SHOW TABLES;
 
 -----
 
-## Observações Técnicas
+## Observações
+
+### **Demonstração do Sistema**
+
+Os prints e o vídeo de funcionamento estão disponíveis na pasta docs/ no diretório principal.
 
 ### **Arquitetura DTO**
 
