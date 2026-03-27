@@ -101,7 +101,3 @@ Implementação de filtros no backend que bloqueiam atualizações de agendament
 ### **Testes Automatizados**
 
 Presença de testes de **Repository** (persistência) e **Controller** (endpoints), garantindo que as mudanças no código não quebrem funcionalidades existentes.
-
-### **Dados Iniciais**
-
-O sistema conta com scripts de migração do Flyway que populam o banco de dados automaticamente na primeira execução, facilitando a avaliação imediata das funcionalidades.
