@@ -111,7 +111,7 @@ Uso da anotação `@Embeddable` na classe `Endereco`, permitindo que os dados de
 
 ### **Regras de Negócio e Validação**
 
-Implementação de filtros no backend que bloqueiam atualizações de agendamentos fora do prazo estipulado (48h), além de validações de campos obrigatórios e formatos de dados (como CEP).
+Implementação de filtros no backend que bloqueiam atualizações de agendamentos fora do prazo estipulado (48h), além de validações de campos obrigatórios e formatos de dados.
 
 ### **Testes Automatizados**
 
