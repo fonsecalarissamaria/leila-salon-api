@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestão de Clientes | Painel Admin</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-color: #d8a4a5;
+            --primary-hover: #c48b8c;
+            --bg-color: #f4e9e9;
+            --text-main: #2c2c2c;
+            --text-light: #777777;
+            --card-bg: #ffffff;
+            --input-border: #e0e0e0;
+            --danger-color: #e74c3c;
+            --edit-color: #3498db;
+            --shadow: 0 8px 25px rgba(0, 0, 0, 0.04);
+            --transition: all 0.3s ease;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            min-height: 100vh;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header {
+            width: 100%;
+            max-width: 800px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .back-link {
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--text-main);
+            text-align: center;
+            flex-grow: 1;
+        }
+
+        main {
+            width: 100%;
+            max-width: 800px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+        }
+
+        ul { list-style: none; }
+
+        li {
+            background-color: #fffafb;
+            padding: 1.2rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            border-left: 4px solid var(--primary-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid var(--input-border);
+            border-right: 1px solid var(--input-border);
+            border-bottom: 1px solid var(--input-border);
+        }
+
+        .client-data {
+            display: flex;
+            flex-direction: column;
+            gap: 0.4rem;
+        }
+
+        .client-name {
+            font-weight: 600;
+            color: var(--text-main);
+            font-size: 1.1rem;
+        }
+
+        .client-info {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .btn-icon {
+            background: none;
+            border: none;
+            cursor: pointer;
+            font-size: 1.2rem;
+            transition: var(--transition);
+            opacity: 0.7;
+        }
+
+        .btn-icon:hover {
+            opacity: 1;
+            transform: scale(1.1);
+        }
+
+        .btn-edit { color: var(--edit-color); }
+        .btn-delete { color: var(--danger-color); }
+
+        .pagination {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .pagination button {
+            background-color: var(--card-bg);
+            border: 1px solid var(--input-border);
+            padding: 0.6rem 1.5rem;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            color: var(--text-main);
+            font-family: 'Montserrat', sans-serif;
+            transition: var(--transition);
+        }
+
+        .pagination button:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+            box-shadow: 0 4px 10px rgba(216, 164, 165, 0.1);
+        }
+
+    </style>
+</head>
+<body>
+
+<header>
+    <a href="index.html" class="back-link">← Voltar ao Painel</a>
+    <h1>Gestão de Clientes</h1>
+    <div style="width: 100px;"></div> </header>
+
+<main>
+    <section class="card">
+        <ul id="listaClientes">
+        </ul>
+
+        <div class="pagination">
+            <button onclick="mudarPagina('anterior')">Anterior</button>
+            <button onclick="mudarPagina('proxima')">Próxima</button>
+        </div>
+    </section>
+</main>
+
+<script src="script.js"></script>
+
+</body>
+</html>

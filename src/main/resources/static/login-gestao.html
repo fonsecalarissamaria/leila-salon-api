@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acesso Restrito | Leila Salon</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-color: #d8a4a5;
+            --primary-hover: #c48b8c;
+            --bg-color: #fcf9f9;
+            --text-main: #2c2c2c;
+            --text-light: #777777;
+            --card-bg: #ffffff;
+            --input-border: #e0e0e0;
+            --shadow: 0 8px 25px rgba(0, 0, 0, 0.04);
+            --transition: all 0.3s ease;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--text-main);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .login-card {
+            background-color: var(--card-bg);
+            border-radius: 16px;
+            padding: 3rem 2.5rem;
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--text-main);
+            margin-bottom: 0.5rem;
+        }
+
+        p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-light);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        input {
+            width: 100%;
+            padding: 1rem;
+            border: 1px solid var(--input-border);
+            border-radius: 8px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1rem;
+            outline: none;
+            transition: var(--transition);
+        }
+
+        input:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(216, 164, 165, 0.2);
+        }
+
+        .btn-login {
+            width: 100%;
+            background-color: var(--text-main);
+            color: white;
+            padding: 1rem;
+            border: none;
+            border-radius: 8px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+            margin-bottom: 1rem;
+        }
+
+        .btn-login:hover {
+            background-color: #000;
+            transform: translateY(-2px);
+        }
+
+        .back-link {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .back-link:hover { color: var(--primary-color); }
+
+        #mensagemErro {
+            color: #e74c3c;
+            font-size: 0.85rem;
+            margin-top: 1rem;
+            display: none;
+        }
+
+    </style>
+</head>
+<body>
+
+<div class="login-card">
+    <h1>Área da Gestão</h1>
+    <p>Acesso exclusivo para administradores.</p>
+
+    <input type="hidden" id="destino" value="">
+
+    <div class="form-group">
+        <label for="senhaAdmin">Senha de Acesso</label>
+        <input type="password" id="senhaAdmin" placeholder="••••••••">
+    </div>
+
+    <button class="btn-login" onclick="validarSenha()">Entrar</button>
+    <p id="mensagemErro">Senha incorreta. Tente novamente.</p>
+
+    <a href="index.html" class="back-link">← Voltar ao Portal</a>
+</div>
+
+<script>
+    function validarSenha() {
+        const senhaDigitada = document.getElementById('senhaAdmin').value;
+        const erro = document.getElementById('mensagemErro');
+
+        if (senhaDigitada === "leila123") {
+            sessionStorage.setItem("leilaLogada", "sim");
+            window.location.href = "painel-gestao.html";
+        } else {
+            erro.style.display = "block";
+            document.getElementById('senhaAdmin').value = "";
+        }
+    }
+
+    document.getElementById("senhaAdmin").addEventListener("keypress", function(event) {
+        if (event.key === "Enter") validarSenha();
+    });
+</script>
+
+</body>
+</html>

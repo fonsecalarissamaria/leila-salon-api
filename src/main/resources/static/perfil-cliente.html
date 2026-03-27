@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Perfil | Leila Salon</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-color: #d8a4a5;
+            --primary-hover: #c48b8c;
+            --bg-color: #fcf9f9;
+            --text-main: #2c2c2c;
+            --text-light: #777777;
+            --card-bg: #ffffff;
+            --input-border: #e0e0e0;
+            --shadow: 0 8px 25px rgba(0, 0, 0, 0.04);
+            --transition: all 0.3s ease;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            min-height: 100vh;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header {
+            width: 100%;
+            max-width: 600px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .back-link {
+            align-self: flex-start;
+            color: var(--text-light);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+            transition: var(--transition);
+        }
+
+        .back-link:hover { color: var(--primary-color); }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--text-main);
+            margin-bottom: 0.5rem;
+        }
+
+        main {
+            width: 100%;
+            max-width: 600px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 16px;
+            padding: 2.5rem;
+            box-shadow: var(--shadow);
+            border: 1px solid rgba(216, 164, 165, 0.1);
+        }
+
+        .login-section {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px dashed var(--input-border);
+        }
+
+        .tabs {
+            display: none;
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tab-btn {
+            flex: 1;
+            padding: 0.8rem;
+            background: transparent;
+            border: none;
+            border-bottom: 2px solid transparent;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            color: var(--text-light);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .tab-btn.active {
+            color: var(--primary-color);
+            border-bottom-color: var(--primary-color);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .form-group { margin-bottom: 1.2rem; }
+        .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+        label { display: block; font-size: 0.85rem; font-weight: 500; color: var(--text-light); margin-bottom: 0.4rem; }
+        input { width: 100%; padding: 0.8rem 1rem; border: 1px solid var(--input-border); border-radius: 8px; font-family: 'Montserrat', sans-serif; font-size: 0.95rem; color: var(--text-main); outline: none; }
+        input:focus { border-color: var(--primary-color); box-shadow: 0 0 0 3px rgba(216, 164, 165, 0.2); }
+        button.btn-primary { width: 100%; background-color: var(--primary-color); color: white; padding: 1rem; border: none; border-radius: 8px; font-weight: 600; font-size: 1rem; cursor: pointer; margin-top: 1rem; transition: var(--transition);}
+        button.btn-primary:hover { background-color: var(--primary-hover); transform: translateY(-2px); }
+
+         .agendamento-item {
+            background-color: var(--bg-color);
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 1rem;
+            border: 1px solid var(--input-border);
+        }
+
+        .aviso {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            margin-top: 0.5rem;
+            display: block;
+        }
+
+        .tag-status {
+            display: inline-block;
+            padding: 0.3rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            letter-spacing: 0.5px;
+        }
+
+        .tag-pendente {
+            background-color: #fff3cd;
+            color: #856404;
+            border: 1px solid #ffeeba;
+        }
+
+        .tag-confirmado {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <a href="index.html" class="back-link">← Voltar ao Início</a>
+    <h1>Meu Perfil</h1>
+    <p class="subtitle" id="mensagemBemVindo">Acesse seus dados para gerenciar seu perfil.</p>
+</header>
+
+<main>
+    <section class="card">
+
+        <div class="login-section" id="secaoLogin">
+            <div class="form-group">
+                <label for="cpfBuscaCliente">Digite seu CPF</label>
+                <input type="text" id="cpfBuscaCliente" placeholder="Ex: 12345678900">
+            </div>
+            <button class="btn-primary" onclick="buscarDadosCliente()">Acessar Meu Perfil</button>
+        </div>
+
+        <div id="secaoPerfil" style="display: none;">
+
+            <div class="tabs">
+                <button class="tab-btn active" onclick="mudarAba('dados')">Meus Dados</button>
+                <button class="tab-btn" onclick="mudarAba('agendamentos')">Meus Agendamentos</button>
+            </div>
+
+            <div id="abaDados" class="tab-content active">
+                <input type="hidden" id="clienteIdPerfil">
+
+                <h3 style="font-size: 1.1rem; color: var(--primary-color); margin-bottom: 1rem;">Dados Pessoais</h3>
+
+                <div class="form-group">
+                    <label for="nome">Nome Completo</label>
+                    <input type="text" id="nome">
+                </div>
+                <div class="form-group">
+                    <label for="telefone">Telefone</label>
+                    <input type="text" id="telefone">
+                </div>
+
+                <h3 style="font-size: 1.1rem; color: var(--primary-color); margin: 1.5rem 0 1rem;">Endereço</h3>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="cep">CEP</label>
+                        <input type="text" id="cep">
+                    </div>
+                    <div class="form-group">
+                        <label for="logradouro">Logradouro</label>
+                        <input type="text" id="logradouro">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="numero">Número</label>
+                        <input type="text" id="numero">
+                    </div>
+                    <div class="form-group">
+                        <label for="complemento">Complemento</label>
+                        <input type="text" id="complemento">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="bairro">Bairro</label>
+                        <input type="text" id="bairro">
+                    </div>
+                    <div class="form-group">
+                        <label for="cidade">Cidade</label>
+                        <input type="text" id="cidade">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="uf">UF</label>
+                    <input type="text" id="uf" maxlength="2">
+                </div>
+
+                <button class="btn-primary" onclick="atualizarMeuCadastro()">Salvar Alterações</button>
+            </div>
+
+            <div id="abaAgendamentos" class="tab-content">
+                <p style="font-size: 0.9rem; margin-bottom: 1rem;">Selecione um agendamento para alterar a data ou o serviço.</p>
+                <span class="aviso">Lembre-se: Alterações só são permitidas com 48h de antecedência. Fale conosco pelo telefone caso o prazo seja menor.</span>
+
+                <div id="listaMeusAgendamentos">
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+</main>
+
+<script src="script.js"></script>
+<script>
+    function mudarAba(abaId) {
+        document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
+        document.querySelectorAll('.tab-content').forEach(content => content.classList.remove('active'));
+
+        event.target.classList.add('active');
+        if (abaId === 'dados') document.getElementById('abaDados').classList.add('active');
+        if (abaId === 'agendamentos') document.getElementById('abaAgendamentos').classList.add('active');
+    }
+</script>
+
+</body>
+</html>

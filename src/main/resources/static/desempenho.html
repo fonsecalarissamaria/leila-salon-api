@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desempenho Semanal | Gestão</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-color: #d8a4a5;
+            --primary-hover: #c48b8c;
+            --bg-color: #f4e9e9;
+            --text-main: #2c2c2c;
+            --text-light: #777777;
+            --card-bg: #ffffff;
+            --shadow: 0 8px 25px rgba(0, 0, 0, 0.04);
+            --transition: all 0.3s ease;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            min-height: 100vh;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header {
+            width: 100%;
+            max-width: 900px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .back-link {
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--text-main);
+            text-align: center;
+            flex-grow: 1;
+        }
+
+        main {
+            width: 100%;
+            max-width: 900px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .stat-card {
+            background-color: var(--card-bg);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            box-shadow: var(--shadow);
+            border-bottom: 4px solid var(--primary-color);
+            transition: var(--transition);
+        }
+
+        .stat-card:hover { transform: translateY(-5px); }
+
+        .stat-card.confirmado { border-bottom-color: #28a745; }
+        .stat-card.pendente { border-bottom-color: #ffc107; }
+
+        .stat-title {
+            font-size: 1rem;
+            color: var(--text-light);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+
+        .stat-number {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            color: var(--text-main);
+            font-weight: 600;
+        }
+
+        .periodo-aviso {
+            text-align: center;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+
+    </style>
+</head>
+<body>
+
+<header>
+    <a href="index.html" class="back-link">← Voltar ao Painel</a>
+    <h1>Desempenho da Semana</h1>
+    <div style="width: 130px;"></div>
+</header>
+
+<main>
+    <p class="periodo-aviso" id="textoPeriodo">Calculando período...</p>
+
+    <div class="stats-grid" id="telaDesempenho">
+
+        <div class="stat-card">
+            <h3 class="stat-title">Total de Marcações</h3>
+            <div class="stat-number" id="totalSemana">0</div>
+        </div>
+
+        <div class="stat-card confirmado">
+            <h3 class="stat-title">Confirmados</h3>
+            <div class="stat-number" id="totalConfirmados">0</div>
+        </div>
+
+        <div class="stat-card pendente">
+            <h3 class="stat-title">Pendentes</h3>
+            <div class="stat-number" id="totalPendentes">0</div>
+        </div>
+
+    </div>
+</main>
+
+<script src="script.js"></script>
+
+</body>
+</html>

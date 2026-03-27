@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Leila Salon | Portal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-color: #d8a4a5;
+            --primary-hover: #c48b8c;
+            --bg-color: #fcf9f9;
+            --text-main: #2c2c2c;
+            --text-light: #777777;
+            --card-bg: #ffffff;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header {
+            text-align: center;
+            padding: 4rem 2rem 2rem;
+            width: 100%;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 3.5rem;
+            color: var(--text-main);
+            margin-bottom: 0.5rem;
+            letter-spacing: 1px;
+        }
+
+        .subtitle {
+            color: var(--text-light);
+            font-size: 1.1rem;
+            font-weight: 300;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+        }
+
+        main {
+            width: 100%;
+            max-width: 1000px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding-bottom: 4rem;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: var(--text-main);
+            margin: 2rem 0 1rem;
+            width: 100%;
+            text-align: center;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 2px;
+            background-color: var(--primary-color);
+            margin: 0.5rem auto 0;
+        }
+
+        .nav-container {
+            display: flex;
+            gap: 2rem;
+            padding: 1rem 2rem;
+            width: 100%;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 16px;
+            padding: 2.5rem 2rem;
+            width: 280px;
+            text-align: center;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border: 1px solid rgba(216, 164, 165, 0.1);
+            text-decoration: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 35px rgba(216, 164, 165, 0.2);
+            border-color: var(--primary-color);
+        }
+
+        .card.management {
+            border: 1px solid var(--primary-color);
+            background-color: #fffafb;
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .card h2 {
+            font-size: 1.5rem;
+            color: var(--text-main);
+            font-weight: 600;
+        }
+
+        .card p {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+
+        .btn {
+            margin-top: auto;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: var(--transition);
+            width: 100%;
+        }
+
+        .card:hover .btn {
+            background-color: var(--primary-hover);
+            transform: scale(1.05);
+        }
+
+        .card.management .btn {
+            background-color: var(--text-main);
+        }
+
+        .card.management:hover .btn {
+            background-color: #000;
+        }
+
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Leila Salon</h1>
+    <p class="subtitle">Beleza & Bem-Estar</p>
+</header>
+
+<main>
+    <h2 class="section-title">Para Nossas Clientes</h2>
+    <div class="nav-container">
+        <a href="cadastro.html" class="card">
+            <div class="card-icon">✨</div>
+            <h2>Meu Cadastro</h2>
+            <p>Primeira vez aqui? Faça seu cadastro e seja muito bem-vinda.</p>
+            <div class="btn">Cadastrar</div>
+        </a>
+
+        <a href="agendamentos.html" class="card">
+            <div class="card-icon">📅</div>
+            <h2>Agendar Horário</h2>
+            <p>Defina o que deseja fazer e agende o melhor horário para você.</p>
+            <div class="btn">Agendar</div>
+        </a>
+
+        <a href="perfil-cliente.html" class="card">
+            <div class="card-icon">👤</div>
+            <h2>Meu Perfil</h2>
+            <p>Atualize seus dados ou reagende seus horários.</p>
+            <div class="btn">Acessar</div>
+        </a>
+    </div>
+
+    <h2 class="section-title" style="margin-top: 3rem;">Acesso Restrito (Gestão)</h2>
+    <div class="nav-container">
+        <a href="login-gestao.html" class="card management">
+            <div class="card-icon">🔐</div>
+            <h2>Painel da Gestão</h2>
+            <p>Área reservada exclusivamente para a administração do salão.</p>
+            <div class="btn">Entrar</div>
+        </a>
+    </div>
+</main>
+
+</body>
+</html>

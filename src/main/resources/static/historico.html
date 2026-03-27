@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Histórico de Agendamentos | Gestão</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,600;1,600&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            --primary-color: #d8a4a5;
+            --primary-hover: #c48b8c;
+            --secondary-color: #f4e9e9;
+            --bg-color: #f4e9e9;
+            --text-main: #2c2c2c;
+            --text-light: #777777;
+            --card-bg: #ffffff;
+            --input-border: #e0e0e0;
+            --shadow: 0 8px 25px rgba(0, 0, 0, 0.04);
+            --transition: all 0.3s ease;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            min-height: 100vh;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        header {
+            width: 100%;
+            max-width: 800px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .back-link {
+            color: var(--text-main);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.5rem;
+            color: var(--text-main);
+            text-align: center;
+            flex-grow: 1;
+        }
+
+        main {
+            width: 100%;
+            max-width: 800px;
+        }
+
+        .card {
+            background-color: var(--card-bg);
+            border-radius: 16px;
+            padding: 2rem;
+            box-shadow: var(--shadow);
+            margin-bottom: 2rem;
+        }
+
+        .card h2 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            color: var(--text-main);
+            border-bottom: 2px solid var(--bg-color);
+            padding-bottom: 0.5rem;
+        }
+
+        .filter-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        @media (max-width: 600px) {
+            .filter-row { grid-template-columns: 1fr; }
+        }
+
+        .form-group { display: flex; flex-direction: column; gap: 0.4rem; }
+
+        label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-light);
+        }
+
+        input {
+            width: 100%;
+            padding: 0.8rem 1rem;
+            border: 1px solid var(--input-border);
+            border-radius: 8px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.95rem;
+            color: var(--text-main);
+            outline: none;
+        }
+
+        input[type="datetime-local"] { background-color: transparent; }
+
+        input:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(216, 164, 165, 0.2);
+        }
+
+        button.btn-primary {
+            width: 100%;
+            background-color: var(--text-main);
+            color: white;
+            padding: 1rem;
+            border: none;
+            border-radius: 8px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        button.btn-primary:hover {
+            background-color: #000;
+            transform: translateY(-2px);
+        }
+
+        ul { list-style: none; }
+
+        li {
+            background-color: #fffafb;
+            padding: 1rem;
+            border-radius: 8px;
+            margin-bottom: 0.8rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            border: 1px solid var(--input-border);
+        }
+
+        .agenda-time {
+            background-color: var(--primary-color);
+            color: white;
+            padding: 0.5rem;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            text-align: center;
+            min-width: 70px;
+        }
+
+        .agenda-details {
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem;
+        }
+
+        .client-name {
+            font-weight: 600;
+            color: var(--text-main);
+            font-size: 0.95rem;
+        }
+
+        .service-type {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        .empty-message {
+            text-align: center;
+            color: var(--text-light);
+            font-style: italic;
+            padding: 1rem 0;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <a href="index.html" class="back-link">← Voltar ao Início</a>
+    <h1>Histórico da Agenda</h1>
+    <div style="width: 130px;"></div> </header>
+
+<main>
+    <section class="card">
+        <h2>Filtrar Período</h2>
+        <div class="filter-row">
+            <div class="form-group">
+                <label for="filtroInicio">Data e Hora Inicial</label>
+                <input type="datetime-local" id="filtroInicio">
+            </div>
+            <div class="form-group">
+                <label for="filtroFim">Data e Hora Final</label>
+                <input type="datetime-local" id="filtroFim">
+            </div>
+        </div>
+        <button class="btn-primary" onclick="filtrarAgendamentos()">Buscar Agendamentos</button>
+    </section>
+
+    <section class="card">
+        <h2>Agendamentos Pendentes</h2>
+
+        <ul id="listaPendentes"></ul>
+
+        <button class="btn-primary" onclick="carregarPendentes()">
+            Carregar Pendentes
+        </button>
+
+        <button class="btn-primary" onclick="proximaPagina()">
+            Próxima Página
+        </button>
+    </section>
+
+    <section class="card">
+        <h2>Resultados</h2>
+        <ul id="listaAgendamentosHist">
+            <p class="empty-message">Selecione um período acima para visualizar os agendamentos.</p>
+        </ul>
+    </section>
+</main>
+
+<script src="script.js"></script>
+
+</body>
+</html>
