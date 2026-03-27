@@ -6,7 +6,7 @@ Este projeto consiste em uma **API REST** para o gerenciamento de um salão de b
 
 ## Sobre o Projeto
 
-O sistema foi desenvolvido para atender às necessidades específicas da **Cabeleireira Leila**, permitindo que seus clientes realizem agendamentos online de forma personalizada.
+O sistema foi desenvolvido para atender às necessidades específicas da **Cabeleleila Leila**, permitindo que seus clientes realizem agendamentos online de forma personalizada.
 
 
 ### Principais Funcionalidades:
