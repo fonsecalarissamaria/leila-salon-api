@@ -82,6 +82,17 @@ SHOW TABLES;
 
 **Observação:** O backend se conecta ao banco utilizando o hostname interno do Docker (`mysql:3306`), através da rede criada automaticamente pelo Docker Compose.
 
+
+### **4. Parar a Aplicação**
+
+Para encerrar os containers do projeto, utilize no terminal:
+
+```bash
+docker-compose down
+```
+
+Isso irá parar todos os containers e liberar as portas usadas.
+
 -----
 
 ## Observações
