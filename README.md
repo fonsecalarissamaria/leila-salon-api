@@ -1,6 +1,6 @@
 # Leila Salon API
 
-Este projeto consiste em uma **API REST** para o gerenciamento completo de um salão de beleza. A solução engloba o controle de clientes, endereços e agendamentos, integrando regras de negócio e uma interface web para interação do usuário.
+Este projeto consiste em uma **API REST** para o gerenciamento de um salão de beleza. A solução engloba o controle de clientes, endereços e agendamentos, integrando regras de negócio e uma interface web para interação do usuário.
 
 -----
 
@@ -14,7 +14,7 @@ O sistema foi desenvolvido para atender às necessidades específicas da **Cabel
 * **Agendamento de Serviços:** Possibilidade de agendar um ou mais serviços em uma única operação de forma prática.
 * **Acesso Restrito (Gestão):** Área administrativa protegida por **login e senha**, garantindo que apenas a proprietária e funcionários autorizados acessem os dados gerenciais.
 * **Regra de Alteração (48h):** Alterações via sistema permitidas apenas com até 2 dias de antecedência. Caso contrário, o sistema orienta o contato via telefone.
-* **Gestão de Status:** Controle operacional completo para confirmação e gerenciamento do status de cada serviço solicitado.
+* **Gestão de Status:** Controle operacional para confirmação e gerenciamento do status de cada serviço solicitado.
 * **Exclusão Lógica:** Registros não são apagados fisicamente do banco de dados, preservando o histórico de agendamentos através de um sistema de ativação/desativação.
 
 ---
@@ -24,7 +24,7 @@ O sistema foi desenvolvido para atender às necessidades específicas da **Cabel
 ### **Backend**
 
 * **Java 21**: Linguagem de programação em sua versão estável mais recente (LTS).
-* **Spring Boot 3.4.x**: Framework base para gerenciamento de dependências e produtividade.
+* **Spring Boot 3.4.3**: Framework base para gerenciamento de dependências e produtividade.
 * **Spring Data JPA**: Abstração para persistência de dados e comunicação eficiente com o banco.
 * **Jakarta Validation**: Garantia de integridade dos dados (ex: `@NotBlank` e `@Pattern`).
 * **Flyway**: Controle de versionamento do schema do banco de dados através de Migrations.
@@ -63,7 +63,7 @@ docker-compose up -d --build
 
 ### **3. Acesso**
 
-* **Sistema:** [http://localhost:8080](https://www.google.com/search?q=http://localhost:8080)
+* **Sistema:** [http://localhost:8080](http://localhost:8080)
 * **Acesso à Gestão:** Para acessar as funcionalidades operacionais e gerenciais do salão, utilize a senha: leila123
 * **Banco de Dados (MySQL - Docker):** A aplicação utiliza um banco MySQL rodando em container Docker. Para acessar via terminal:
 
